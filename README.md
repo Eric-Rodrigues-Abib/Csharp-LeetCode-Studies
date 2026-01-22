@@ -6,6 +6,7 @@ This repository contains my LeetCode studies using C# and .NET.
 - Arrays
 - Strings (coming soon)
 - LinkedLists (coming soon)
+- Other..
 
 ## Goals
 - Practice algorithms and data structures
