@@ -1,6 +1,5 @@
 namespace BinarySearch.Exercises
 {
-    using System.Collections.Generic;
     // LeetCode 4: Median of Two Sorted Arrays
     // Link: https://leetcode.com/problems/median-of-two-sorted-arrays/description/
     // Difficulty: Hard
