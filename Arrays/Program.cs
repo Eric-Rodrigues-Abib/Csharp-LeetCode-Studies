@@ -5,10 +5,11 @@ Console.WriteLine("Choose the exercise to run:");
 Console.WriteLine("1 - LC 3507: Minimum Pair Removal to Sort Array I");
 Console.WriteLine("2 - LC 1: Two Sum");
 Console.WriteLine("3 - LC 66: Plus One");
+Console.WriteLine("4 - LC 88: Merge Sorted Array");
 
 int choice = int.Parse(Console.ReadLine() ?? "0");
 
-while (choice < 1 || choice > 3)
+while (choice < 1 || choice > 4)
 {
     Console.WriteLine("Invalid choice. Please try again:");
     choice = int.Parse(Console.ReadLine() ?? "0");
@@ -24,6 +25,9 @@ switch (choice)
         break;
     case 3:
         RunLC66();
+        break;
+    case 4:
+        RunLC88();
         break;
     default:
         Console.WriteLine("Invalid option.");
@@ -56,4 +60,16 @@ static void RunLC66()
     Console.WriteLine("Input Digits: [" + string.Join(", ", digits) + "]");
     int[] result = LC_66_PlusOne.PlusOne(digits);
     Console.WriteLine("Result after Plus One: [" + string.Join(", ", result) + "]");
+}
+
+static void RunLC88()
+{
+    int[] nums1 = [1, 2, 3, 0, 0, 0];
+    int m = 3;
+    int[] nums2 = [2, 5, 6];
+    int n = 3;
+    Console.WriteLine("Input nums1: [" + string.Join(", ", nums1) + "], m: " + m);
+    Console.WriteLine("Input nums2: [" + string.Join(", ", nums2) + "], n: " + n);
+    LC_88_MergeSortedArray.Merge(nums1, m, nums2, n);
+    Console.WriteLine("Merged nums1: [" + string.Join(", ", nums1) + "]");
 }
