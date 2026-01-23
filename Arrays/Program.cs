@@ -1,6 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Arrays.Exercises;
-// mude pro ingles
+
 Console.WriteLine("Choose the exercise to run:");
 Console.WriteLine("1 - LC 3507: Minimum Pair Removal to Sort Array I");
 Console.WriteLine("2 - LC 1: Two Sum");
@@ -29,8 +29,7 @@ switch (choice)
 // Exercise for LeetCode 3507: Minimum Pair Removal to Sort Array I
 static void RunLC3507()
 {
-    LC_3507_MinimumPairRemovaltoSortArrayI solution = new();
-    int[] nums = new int[] { 5, 2, 3, 1};
+    int[] nums = [5, 2, 3, 1];
     int result = LC_3507_MinimumPairRemovaltoSortArrayI.MinimumPairRemoval(nums);
     Console.WriteLine("Input Array: [" + string.Join(", ", nums) + "]");
     Console.WriteLine($"Minimum Pair Removal to Sort Array I: {result}");
