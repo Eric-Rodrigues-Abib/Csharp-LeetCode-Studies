@@ -6,10 +6,12 @@ Console.WriteLine("1 - LC 3507: Minimum Pair Removal to Sort Array I");
 Console.WriteLine("2 - LC 1: Two Sum");
 Console.WriteLine("3 - LC 66: Plus One");
 Console.WriteLine("4 - LC 88: Merge Sorted Array");
+Console.WriteLine("5 - LC 287: Find the Duplicate Number");
+Console.WriteLine("6 - LC 2351: First Letter to Appear Twice");
 
 int choice = int.Parse(Console.ReadLine() ?? "0");
 
-while (choice < 1 || choice > 4)
+while (choice < 1 || choice > 6)
 {
     Console.WriteLine("Invalid choice. Please try again:");
     choice = int.Parse(Console.ReadLine() ?? "0");
@@ -28,6 +30,12 @@ switch (choice)
         break;
     case 4:
         RunLC88();
+        break;
+    case 5:
+        RunLC287();
+        break;
+    case 6:
+        RuncLC2351();
         break;
     default:
         Console.WriteLine("Invalid option.");
@@ -72,4 +80,20 @@ static void RunLC88()
     Console.WriteLine("Input nums2: [" + string.Join(", ", nums2) + "], n: " + n);
     LC_88_MergeSortedArray.Merge(nums1, m, nums2, n);
     Console.WriteLine("Merged nums1: [" + string.Join(", ", nums1) + "]");
+}
+
+static void RunLC287()
+{
+    int[] nums = [1, 3, 4, 2, 2];
+    Console.WriteLine("Input Array: [" + string.Join(", ", nums) + "]");
+    int result = LC_287_FindTheDuplicateNumber.FindDuplicate(nums);
+    Console.WriteLine($"The Duplicate Number is: {result}");
+}
+
+static void RuncLC2351()
+{
+    string s = "abccbaacz";
+    Console.WriteLine("Input String: " + s);
+    char result = LC_2351_FirstLetterToAppearTwice.RepeatedCharacter_HashSet(s);
+    Console.WriteLine($"First Letter to Appear Twice: {result}");
 }
