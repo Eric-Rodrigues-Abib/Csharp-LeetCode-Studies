@@ -5,10 +5,12 @@ Console.WriteLine("Choose the exercise to run:");
 Console.WriteLine("1 - LC 04: Median of Two Sorted Arrays");
 Console.WriteLine("2 - LC 35: Search Insert Position");
 Console.WriteLine("3 - LC 34: Find First and Last Position of Element in Sorted Array");
+Console.WriteLine("5 - LC 704: Binary Search (not implemented in this menu)");
 Console.WriteLine("4 - Entrevista BTG: Check Anagrams");
+
 int choice = int.Parse(Console.ReadLine() ?? "0");
 
-while (choice < 1 || choice > 4)
+while (choice < 1 || choice > 5)
 {
     Console.WriteLine("Invalid choice. Please try again:");
     choice = int.Parse(Console.ReadLine() ?? "0");
@@ -27,6 +29,9 @@ switch (choice)
         break;
     case 4:
         RunEntrevistaBTG();
+        break;
+    case 5:
+        RunLC704();
         break;
     default:
         Console.WriteLine("Invalid option.");
@@ -66,4 +71,13 @@ static void RunEntrevistaBTG()
     string str2 = "aba";
     bool result = EntrevistaBTG.IsAnagramOrNot(str1, str2);
     Console.WriteLine($"Are \"{str1}\" and \"{str2}\" anagrams? {result}");
+}
+
+static void RunLC704()
+{
+    int[] nums = [ -1, 0, 3, 5, 9, 12 ];
+    int target = 9;
+    Console.WriteLine("Input Array: [" + string.Join(", ", nums) + "], Target: " + target);
+    int result = LC_704_BinarySearch.Search(nums, target);
+    Console.WriteLine($"Binary Search Result: {result}");
 }
