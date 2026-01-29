@@ -5,10 +5,10 @@ Console.WriteLine("Choose the exercise to run:");
 Console.WriteLine("1 - LC 04: Median of Two Sorted Arrays");
 Console.WriteLine("2 - LC 35: Search Insert Position");
 Console.WriteLine("3 - LC 34: Find First and Last Position of Element in Sorted Array");
-
+Console.WriteLine("4 - Entrevista BTG: Check Anagrams");
 int choice = int.Parse(Console.ReadLine() ?? "0");
 
-while (choice < 1 || choice > 3)
+while (choice < 1 || choice > 4)
 {
     Console.WriteLine("Invalid choice. Please try again:");
     choice = int.Parse(Console.ReadLine() ?? "0");
@@ -24,6 +24,9 @@ switch (choice)
         break;
     case 3:
         RunLC34();
+        break;
+    case 4:
+        RunEntrevistaBTG();
         break;
     default:
         Console.WriteLine("Invalid option.");
@@ -55,4 +58,12 @@ static void RunLC34()
     Console.WriteLine("Input Array: [" + string.Join(", ", nums) + "], Target: " + target);
     int[] result = LC_34_FindFirstandLastPositionOfElementInSortedArray.SearchRange(nums, target);
     Console.WriteLine($"First and Last Position of Element in Sorted Array: [" + string.Join(", ", result) + "]");
+}
+
+static void RunEntrevistaBTG()
+{
+    string str1 = "aab";
+    string str2 = "aba";
+    bool result = EntrevistaBTG.IsAnagramOrNot(str1, str2);
+    Console.WriteLine($"Are \"{str1}\" and \"{str2}\" anagrams? {result}");
 }
