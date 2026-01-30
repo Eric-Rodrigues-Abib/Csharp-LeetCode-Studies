@@ -9,10 +9,11 @@ Console.WriteLine("4 - LC 88: Merge Sorted Array");
 Console.WriteLine("5 - LC 287: Find the Duplicate Number");
 Console.WriteLine("6 - LC 2351: First Letter to Appear Twice");
 Console.WriteLine("7 - LC 169: Majority Element");
+Console.WriteLine("8 - LC 136: Single Number");
 
 int choice = int.Parse(Console.ReadLine() ?? "0");
 
-while (choice < 1 || choice > 7)
+while (choice < 1 || choice > 8)
 {
     Console.WriteLine("Invalid choice. Please try again:");
     choice = int.Parse(Console.ReadLine() ?? "0");
@@ -40,6 +41,9 @@ switch (choice)
         break;
     case 7:
         RunLC169();
+        break;
+    case 8:
+        RunLC136();
         break;
     default:
         Console.WriteLine("Invalid option.");
@@ -108,4 +112,12 @@ static void RunLC169()
     Console.WriteLine("Input Array: [" + string.Join(", ", nums) + "]");
     int result = LC_169_MajorityElement.MajorityElemnt(nums);
     Console.WriteLine($"Majority Element is: {result}");
+}
+
+static void RunLC136()
+{
+    int[] nums = [4, 1, 2, 1, 2];
+    Console.WriteLine("Input Array: [" + string.Join(", ", nums) + "]");
+    int result = LC_136_SingleNumber.SingleNumber(nums);
+    Console.WriteLine($"Single Number is: {result}");
 }
