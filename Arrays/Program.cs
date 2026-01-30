@@ -8,10 +8,11 @@ Console.WriteLine("3 - LC 66: Plus One");
 Console.WriteLine("4 - LC 88: Merge Sorted Array");
 Console.WriteLine("5 - LC 287: Find the Duplicate Number");
 Console.WriteLine("6 - LC 2351: First Letter to Appear Twice");
+Console.WriteLine("7 - LC 169: Majority Element");
 
 int choice = int.Parse(Console.ReadLine() ?? "0");
 
-while (choice < 1 || choice > 6)
+while (choice < 1 || choice > 7)
 {
     Console.WriteLine("Invalid choice. Please try again:");
     choice = int.Parse(Console.ReadLine() ?? "0");
@@ -36,6 +37,9 @@ switch (choice)
         break;
     case 6:
         RuncLC2351();
+        break;
+    case 7:
+        RunLC169();
         break;
     default:
         Console.WriteLine("Invalid option.");
@@ -96,4 +100,12 @@ static void RuncLC2351()
     Console.WriteLine("Input String: " + s);
     char result = LC_2351_FirstLetterToAppearTwice.RepeatedCharacter_HashSet(s);
     Console.WriteLine($"First Letter to Appear Twice: {result}");
+}
+
+static void RunLC169()
+{
+    int[] nums = [3, 2, 3];
+    Console.WriteLine("Input Array: [" + string.Join(", ", nums) + "]");
+    int result = LC_169_MajorityElement.MajorityElemnt(nums);
+    Console.WriteLine($"Majority Element is: {result}");
 }
