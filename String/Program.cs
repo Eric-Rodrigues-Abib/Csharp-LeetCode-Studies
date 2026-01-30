@@ -4,10 +4,11 @@ Console.WriteLine("1 - LC 13: Roman to Integer");
 Console.WriteLine("2 - LC 20: Valid Parentheses");
 Console.WriteLine("3 - LC 28: Find the Index of the First Occurrence in a String");
 Console.WriteLine("4 - LC 58: Length of Last Word");
+Console.WriteLine("5 - LC 125: Valid Palindrome");
 
 int choice = int.Parse(Console.ReadLine() ?? "0");
 
-while (choice < 1 || choice > 4)
+while (choice < 1 || choice > 5)
 {
     Console.WriteLine("Invalid choice. Please try again:");
     choice = int.Parse(Console.ReadLine() ?? "0");
@@ -25,7 +26,10 @@ switch (choice)
         RunLC28();
         break;
     case 4:
-        RuncLC58();
+        RunLC58();
+        break;
+    case 5:
+        RunLC125();
         break;
     default:
         Console.WriteLine("Invalid option.");
@@ -57,10 +61,18 @@ static void RunLC28()
     Console.WriteLine($"Index of First Occurrence: {result}");
 }
 
-static void RuncLC58()
+static void RunLC58()
 {
     string s = "a ";
     Console.WriteLine("Input String: " + s);
     int result = String.Exercises.LC_58_LengthOfLastWord.LengthOfLastWord(s);
     Console.WriteLine($"Length of Last Word: {result}");
+}
+
+static void RunLC125()
+{
+    string s = "A man, a plan, a canal: Panama";
+    Console.WriteLine("Input String: " + s);
+    bool result = String.Exercises.LC_125_ValidPalindrome.IsPalindrome(s);
+    Console.WriteLine($"Is Palindrome: {result}");
 }
