@@ -5,10 +5,11 @@ Console.WriteLine("2 - LC 20: Valid Parentheses");
 Console.WriteLine("3 - LC 28: Find the Index of the First Occurrence in a String");
 Console.WriteLine("4 - LC 58: Length of Last Word");
 Console.WriteLine("5 - LC 125: Valid Palindrome");
+Console.WriteLine("6 - LC 3: Longest Substring Without Repeating Characters");
 
 int choice = int.Parse(Console.ReadLine() ?? "0");
 
-while (choice < 1 || choice > 5)
+while (choice < 1 || choice > 6)
 {
     Console.WriteLine("Invalid choice. Please try again:");
     choice = int.Parse(Console.ReadLine() ?? "0");
@@ -30,6 +31,9 @@ switch (choice)
         break;
     case 5:
         RunLC125();
+        break;
+    case 6:
+        RunLC03();
         break;
     default:
         Console.WriteLine("Invalid option.");
@@ -75,4 +79,12 @@ static void RunLC125()
     Console.WriteLine("Input String: " + s);
     bool result = String.Exercises.LC_125_ValidPalindrome.IsPalindrome(s);
     Console.WriteLine($"Is Palindrome: {result}");
+}
+
+static void RunLC03()
+{
+    string s = "abccdefghi";
+    Console.WriteLine("Input String: " + s);
+    int result = String.Exercises.LC_3_LongestSubstringWithoutRepeatingCharacters.LengthOfLongestSubstring(s);
+    Console.WriteLine($"Length of Longest Substring Without Repeating Characters: {result}");
 }
