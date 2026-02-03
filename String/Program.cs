@@ -6,10 +6,11 @@ Console.WriteLine("3 - LC 28: Find the Index of the First Occurrence in a String
 Console.WriteLine("4 - LC 58: Length of Last Word");
 Console.WriteLine("5 - LC 125: Valid Palindrome");
 Console.WriteLine("6 - LC 3: Longest Substring Without Repeating Characters");
+Console.WriteLine("7 - LC 387: First Unique Character in a String");
 
 int choice = int.Parse(Console.ReadLine() ?? "0");
 
-while (choice < 1 || choice > 6)
+while (choice < 1 || choice > 7)
 {
     Console.WriteLine("Invalid choice. Please try again:");
     choice = int.Parse(Console.ReadLine() ?? "0");
@@ -34,6 +35,9 @@ switch (choice)
         break;
     case 6:
         RunLC03();
+        break;
+    case 7:
+        RunLC387();
         break;
     default:
         Console.WriteLine("Invalid option.");
@@ -87,4 +91,12 @@ static void RunLC03()
     Console.WriteLine("Input String: " + s);
     int result = String.Exercises.LC_3_LongestSubstringWithoutRepeatingCharacters.LengthOfLongestSubstring(s);
     Console.WriteLine($"Length of Longest Substring Without Repeating Characters: {result}");
+}
+
+static void RunLC387()
+{
+    string s = "leetcode";
+    Console.WriteLine("Input String: " + s);
+    int result = String.Exercises.LC_387_FirstUniqChar.FirstUniqChar(s);
+    Console.WriteLine($"Index of First Unique Character: {result}");
 }

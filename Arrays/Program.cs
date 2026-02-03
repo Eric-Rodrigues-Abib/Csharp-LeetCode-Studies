@@ -10,10 +10,11 @@ Console.WriteLine("5 - LC 287: Find the Duplicate Number");
 Console.WriteLine("6 - LC 2351: First Letter to Appear Twice");
 Console.WriteLine("7 - LC 169: Majority Element");
 Console.WriteLine("8 - LC 136: Single Number");
+Console.WriteLine("9 - LC 347: Top K Frequent Elements");
 
 int choice = int.Parse(Console.ReadLine() ?? "0");
 
-while (choice < 1 || choice > 8)
+while (choice < 1 || choice > 9)
 {
     Console.WriteLine("Invalid choice. Please try again:");
     choice = int.Parse(Console.ReadLine() ?? "0");
@@ -44,6 +45,9 @@ switch (choice)
         break;
     case 8:
         RunLC136();
+        break;
+    case 9:
+        RunLC347();
         break;
     default:
         Console.WriteLine("Invalid option.");
@@ -120,4 +124,15 @@ static void RunLC136()
     Console.WriteLine("Input Array: [" + string.Join(", ", nums) + "]");
     int result = LC_136_SingleNumber.SingleNumber(nums);
     Console.WriteLine($"Single Number is: {result}");
+}
+
+static void RunLC347()
+{
+    int[] nums = [1, 1, 1, 2, 2, 3];
+    int k = 2;
+    Console.WriteLine("Input Array: [" + string.Join(", ", nums) + "], k: " + k);
+    int[] resultNlogk = LC_347_TopKFrequentElements.TopKFrequentNlogk(nums, k);
+    Console.WriteLine("Top K Frequent Elements (N log k): [" + string.Join(", ", resultNlogk) + "]");
+    int[] resultBucketSort = LC_347_TopKFrequentElements.TopKFrequentBucketSort(nums, k);
+    Console.WriteLine("Top K Frequent Elements (Bucket Sort): [" + string.Join(", ", resultBucketSort) + "]");
 }
