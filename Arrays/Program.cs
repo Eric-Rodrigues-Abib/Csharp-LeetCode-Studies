@@ -49,6 +49,9 @@ switch (choice)
     case 9:
         RunLC347();
         break;
+    case 10:
+        RunLC217();
+        break;
     default:
         Console.WriteLine("Invalid option.");
         break;
@@ -135,4 +138,12 @@ static void RunLC347()
     Console.WriteLine("Top K Frequent Elements (N log k): [" + string.Join(", ", resultNlogk) + "]");
     int[] resultBucketSort = LC_347_TopKFrequentElements.TopKFrequentBucketSort(nums, k);
     Console.WriteLine("Top K Frequent Elements (Bucket Sort): [" + string.Join(", ", resultBucketSort) + "]");
+}
+
+static void RunLC217()
+{
+    int[] nums = [1, 2, 3, 1];
+    Console.WriteLine("Input Array: [" + string.Join(", ", nums) + "]");
+    bool result = LC_217_ContainsDuplicate.ContainsDuplicate(nums);
+    Console.WriteLine($"Contains Duplicate: {result}");
 }
