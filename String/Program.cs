@@ -9,10 +9,11 @@ Console.WriteLine("6 - LC 3: Longest Substring Without Repeating Characters");
 Console.WriteLine("7 - LC 387: First Unique Character in a String");
 Console.WriteLine("8 - LC 344: Reverse String");
 Console.WriteLine("9 - LC 343: Number of Segments in a String");
+Console.WriteLine("10 - LC 168: Excel Sheet Column Title");
 
 int choice = int.Parse(Console.ReadLine() ?? "0");
 
-while (choice < 1 || choice > 9)
+while (choice < 1 || choice > 10)
 {
     Console.WriteLine("Invalid choice. Please try again:");
     choice = int.Parse(Console.ReadLine() ?? "0");
@@ -46,6 +47,9 @@ switch (choice)
         break;
     case 9:
         RunLC343();
+        break;
+    case 10:
+        RunLC168();
         break;
     default:
         Console.WriteLine("Invalid option.");
@@ -123,4 +127,12 @@ static void RunLC343()
     Console.WriteLine("Input String: " + s);
     int result = String.Exercises.LC_343_NumberOfSegmentsInAString.CountSegments(s);
     Console.WriteLine($"Number of Segments in String: {result}");
+}
+
+static void RunLC168()
+{
+    int columnNumber = 28;
+    Console.WriteLine("Input Column Number: " + columnNumber);
+    string result = String.Exercises.LC_168_ExcelSheetColumnTitle.ConvertToTitle(columnNumber);
+    Console.WriteLine($"Excel Sheet Column Title: {result}");
 }
