@@ -7,10 +7,12 @@ Console.WriteLine("4 - LC 58: Length of Last Word");
 Console.WriteLine("5 - LC 125: Valid Palindrome");
 Console.WriteLine("6 - LC 3: Longest Substring Without Repeating Characters");
 Console.WriteLine("7 - LC 387: First Unique Character in a String");
+Console.WriteLine("8 - LC 344: Reverse String");
+Console.WriteLine("9 - LC 343: Number of Segments in a String");
 
 int choice = int.Parse(Console.ReadLine() ?? "0");
 
-while (choice < 1 || choice > 7)
+while (choice < 1 || choice > 9)
 {
     Console.WriteLine("Invalid choice. Please try again:");
     choice = int.Parse(Console.ReadLine() ?? "0");
@@ -38,6 +40,12 @@ switch (choice)
         break;
     case 7:
         RunLC387();
+        break;
+    case 8:
+        RunLC344();
+        break;
+    case 9:
+        RunLC343();
         break;
     default:
         Console.WriteLine("Invalid option.");
@@ -99,4 +107,20 @@ static void RunLC387()
     Console.WriteLine("Input String: " + s);
     int result = String.Exercises.LC_387_FirstUniqChar.FirstUniqChar(s);
     Console.WriteLine($"Index of First Unique Character: {result}");
+}
+
+static void RunLC344()
+{
+    char[] s = new char[] {'h','e','l','l','o'};
+    Console.WriteLine("Input String Array: " + new string(s));
+    char[] result = String.Exercises.LC_344_ReverseString.ReverseString(s);
+    Console.WriteLine($"Reversed String Array: " + new string(result));
+}
+
+static void RunLC343()
+{
+    string s = "Hello, my name is John";
+    Console.WriteLine("Input String: " + s);
+    int result = String.Exercises.LC_343_NumberOfSegmentsInAString.CountSegments(s);
+    Console.WriteLine($"Number of Segments in String: {result}");
 }

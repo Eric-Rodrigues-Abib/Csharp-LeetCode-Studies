@@ -31,7 +31,7 @@ namespace Arrays.Exercises
                     answer[1] = i;
                     return answer;
                 }
-                keyValues.Add(nums[i], i);
+                keyValues[nums[i]] = i;
             }
 
             return answer;

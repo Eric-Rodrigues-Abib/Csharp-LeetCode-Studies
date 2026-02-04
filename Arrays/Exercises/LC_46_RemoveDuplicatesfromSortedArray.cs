@@ -15,22 +15,19 @@ namespace Arrays.Exercises
     {
         public static int RemoveDuplicates(int[] nums)
         {
-            int[] newNums = [];
-            int k = 0;
+            if (nums.Length == 0) return 0;
 
-            for (int i = 0; i < nums.Length; i++)
+            int k = 1;
+
+            for (int i = 1; i < nums.Length; i++)
             {
-                if (Array.Exists(newNums, element => element == nums[i]))
+                if (nums[i] != nums[i - 1])
                 {
-                    continue;
-                }
-                else
-                {
-                    Array.Resize(ref newNums, newNums.Length + 1);
-                    newNums[newNums.Length - 1] = nums[i];
+                    nums[k] = nums[i];
                     k++;
                 }
             }
+
             return k;
         } 
     }

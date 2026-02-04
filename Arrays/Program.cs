@@ -11,10 +11,12 @@ Console.WriteLine("6 - LC 2351: First Letter to Appear Twice");
 Console.WriteLine("7 - LC 169: Majority Element");
 Console.WriteLine("8 - LC 136: Single Number");
 Console.WriteLine("9 - LC 347: Top K Frequent Elements");
+Console.WriteLine("10 - LC 217: Contains Duplicate");
+Console.WriteLine("11 - LC 26: Remove Duplicates from Sorted Array");
 
 int choice = int.Parse(Console.ReadLine() ?? "0");
 
-while (choice < 1 || choice > 9)
+while (choice < 1 || choice > 11)
 {
     Console.WriteLine("Invalid choice. Please try again:");
     choice = int.Parse(Console.ReadLine() ?? "0");
@@ -51,6 +53,9 @@ switch (choice)
         break;
     case 10:
         RunLC217();
+        break;
+    case 11:
+        RunLC46();
         break;
     default:
         Console.WriteLine("Invalid option.");
@@ -146,4 +151,12 @@ static void RunLC217()
     Console.WriteLine("Input Array: [" + string.Join(", ", nums) + "]");
     bool result = LC_217_ContainsDuplicate.ContainsDuplicate(nums);
     Console.WriteLine($"Contains Duplicate: {result}");
+}
+
+static void RunLC46()
+{
+    int[] nums = [1,1,2];
+    Console.WriteLine("Input Array: [" + string.Join(", ", nums) + "]");
+    int k = LC_26_RemoveDuplicatesfromSortedArray.RemoveDuplicates(nums);
+    Console.WriteLine($"Length of array after removing duplicates: {k}");
 }
