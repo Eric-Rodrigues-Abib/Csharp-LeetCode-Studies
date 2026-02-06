@@ -14,10 +14,12 @@ Console.WriteLine("9 - LC 347: Top K Frequent Elements");
 Console.WriteLine("10 - LC 217: Contains Duplicate");
 Console.WriteLine("11 - LC 26: Remove Duplicates from Sorted Array");
 Console.WriteLine("12 - LC 3379: Transformed Array");
+Console.WriteLine("13 - LC 3005: Count Elements With Maximum Frequency");
+Console.WriteLine("14 - LC 383: Ransom Note");
 
 int choice = int.Parse(Console.ReadLine() ?? "0");
 
-while (choice < 1 || choice > 12)
+while (choice < 1 || choice > 14)
 {
     Console.WriteLine("Invalid choice. Please try again:");
     choice = int.Parse(Console.ReadLine() ?? "0");
@@ -60,6 +62,12 @@ switch (choice)
         break;
     case 12:
         RunLC3379();
+        break;
+    case 13:
+        RunLC3005();
+        break;
+    case 14:
+        RunLC383();
         break;
     default:
         Console.WriteLine("Invalid option.");
@@ -171,4 +179,21 @@ static void RunLC3379()
     Console.WriteLine("Input Array: [" + string.Join(", ", nums) + "]");
     int[] result = LC_3379_TranformedArray.ConstructTransformedArray(nums);
     Console.WriteLine("Transformed Array: [" + string.Join(", ", result) + "]");
+}
+
+static void RunLC3005()
+{
+    int[] nums = [1, 2, 2, 3, 1, 4];
+    Console.WriteLine("Input Array: [" + string.Join(", ", nums) + "]");
+    int result = LC_3005_CountElementsWithMaximumFrequency.CountMaxFrequencyElements(nums);
+    Console.WriteLine($"Count of Elements with Maximum Frequency: {result}");
+}
+
+static void RunLC383()
+{
+    string ransomNote = "a";
+    string magazine = "b";
+    Console.WriteLine($"Ransom Note: \"{ransomNote}\", Magazine: \"{magazine}\"");
+    bool result = LC_383_RansomNote.CanConstruct(ransomNote, magazine);
+    Console.WriteLine($"Can Construct Ransom Note: {result}");
 }
