@@ -10,10 +10,16 @@ Console.WriteLine("7 - LC 387: First Unique Character in a String");
 Console.WriteLine("8 - LC 344: Reverse String");
 Console.WriteLine("9 - LC 343: Number of Segments in a String");
 Console.WriteLine("10 - LC 168: Excel Sheet Column Title");
+Console.WriteLine("11 - LC 392: Is Subsequence");
+Console.WriteLine("12 - LC 205: Isomorphic Strings");
+Console.WriteLine("13 - LC 290: Word Pattern");
+Console.WriteLine("14 - LC 345: Reverse Vowels of a String");
+Console.WriteLine("15 - LC 389: Find the Difference");
+Console.WriteLine("16 - LC 412: Fizz Buzz");
 
 int choice = int.Parse(Console.ReadLine() ?? "0");
 
-while (choice < 1 || choice > 10)
+while (choice < 1 || choice > 16)
 {
     Console.WriteLine("Invalid choice. Please try again:");
     choice = int.Parse(Console.ReadLine() ?? "0");
@@ -50,6 +56,24 @@ switch (choice)
         break;
     case 10:
         RunLC168();
+        break;
+    case 11:
+        RunLC392();
+        break;
+    case 12:
+        RunLC205();
+        break;
+    case 13:
+        RunLC290();
+        break;
+    case 14:
+        RunLC345();
+        break;
+    case 15:
+        RunLC389();
+        break;
+    case 16:
+        RunLC412();
         break;
     default:
         Console.WriteLine("Invalid option.");
@@ -135,4 +159,56 @@ static void RunLC168()
     Console.WriteLine("Input Column Number: " + columnNumber);
     string result = String.Exercises.LC_168_ExcelSheetColumnTitle.ConvertToTitle(columnNumber);
     Console.WriteLine($"Excel Sheet Column Title: {result}");
+}
+
+static void RunLC392()
+{
+    string s = "abc";
+    string t = "ahbgdc";
+    Console.WriteLine($"Input String s: {s}, t: {t}");
+    bool result = String.Exercises.LC_392_IsSubsequence.IsSubsequence(s, t);
+    Console.WriteLine($"Is Subsequence: {result}");
+}
+
+static void RunLC205()
+{
+    string s = "egg";
+    string t = "add";
+    Console.WriteLine($"Input String s: {s}, t: {t}");
+    bool result = String.Exercises.LC_205_IsomorphicStrings.IsIsomorphic(s, t);
+    Console.WriteLine($"Are Isomorphic: {result}");
+}
+
+static void RunLC290()
+{
+    string pattern = "abba";
+    string s = "dog cat cat dog";
+    Console.WriteLine($"Input Pattern: {pattern}, String: {s}");
+    bool result = String.Exercises.LC_290_WordPattern.WordPattern(pattern, s);
+    Console.WriteLine($"Does String Follow Pattern: {result}");
+}
+
+static void RunLC345()
+{
+    string s = "hello";
+    Console.WriteLine("Input String: " + s);
+    string result = String.Exercises.LC_345_ReverseVowelsOfAString.ReverseVowels(s);
+    Console.WriteLine($"String after Reversing Vowels: {result}");
+}
+
+static void RunLC389()
+{
+    string s = "abcd";
+    string t = "abcde";
+    Console.WriteLine($"Input String s: {s}, t: {t}");
+    char result = String.Exercises.LC_389_FindTheDifference.FindTheDifference(s, t);
+    Console.WriteLine($"The Difference Character: {result}");
+}
+
+static void RunLC412()
+{
+    int n = 15;
+    Console.WriteLine("Input Number: " + n);
+    IList<string> result = String.Exercises.LC_412_FizzBuzz.FizzBuzz(n);
+    Console.WriteLine("FizzBuzz Result: [" + string.Join(", ", result) + "]");
 }

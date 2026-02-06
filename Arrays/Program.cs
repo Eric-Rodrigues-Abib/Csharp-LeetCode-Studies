@@ -16,10 +16,12 @@ Console.WriteLine("11 - LC 26: Remove Duplicates from Sorted Array");
 Console.WriteLine("12 - LC 3379: Transformed Array");
 Console.WriteLine("13 - LC 3005: Count Elements With Maximum Frequency");
 Console.WriteLine("14 - LC 383: Ransom Note");
+Console.WriteLine("15 - LC 283: Move Zeroes");
+Console.WriteLine("16 - LC 350: Intersection of Two Arrays II");
 
 int choice = int.Parse(Console.ReadLine() ?? "0");
 
-while (choice < 1 || choice > 14)
+while (choice < 1 || choice > 16)
 {
     Console.WriteLine("Invalid choice. Please try again:");
     choice = int.Parse(Console.ReadLine() ?? "0");
@@ -68,6 +70,12 @@ switch (choice)
         break;
     case 14:
         RunLC383();
+        break;
+    case 15:
+        RunLC283();
+        break;
+    case 16:
+        RunLC350();
         break;
     default:
         Console.WriteLine("Invalid option.");
@@ -196,4 +204,22 @@ static void RunLC383()
     Console.WriteLine($"Ransom Note: \"{ransomNote}\", Magazine: \"{magazine}\"");
     bool result = LC_383_RansomNote.CanConstruct(ransomNote, magazine);
     Console.WriteLine($"Can Construct Ransom Note: {result}");
+}
+
+static void RunLC283()
+{
+    int[] nums = [0, 1, 0, 3, 12];
+    Console.WriteLine("Input Array: [" + string.Join(", ", nums) + "]");
+    LC_283_MoveZeros.MoveZeroes(nums);
+    Console.WriteLine("Array after moving zeroes: [" + string.Join(", ", nums) + "]");
+}
+
+static void RunLC350()
+{
+    int[] nums1 = [1, 2, 2, 1];
+    int[] nums2 = [2, 2];
+    Console.WriteLine("Input nums1: [" + string.Join(", ", nums1) + "]");
+    Console.WriteLine("Input nums2: [" + string.Join(", ", nums2) + "]");
+    int[] result = LC_350_IntersectionOfTwoArraysII.Intersect(nums1, nums2);
+    Console.WriteLine("Intersection of Two Arrays II: [" + string.Join(", ", result) + "]");
 }
