@@ -18,10 +18,13 @@ Console.WriteLine("13 - LC 3005: Count Elements With Maximum Frequency");
 Console.WriteLine("14 - LC 383: Ransom Note");
 Console.WriteLine("15 - LC 283: Move Zeroes");
 Console.WriteLine("16 - LC 350: Intersection of Two Arrays II");
+Console.WriteLine("17 - LC 219: Contains Duplicate II");
+Console.WriteLine("18 - LC 448: Find All Disappeared in an Array");
+Console.WriteLine("19 - LC 645: Set Mismatch");
 
 int choice = int.Parse(Console.ReadLine() ?? "0");
 
-while (choice < 1 || choice > 16)
+while (choice < 1 || choice > 19)
 {
     Console.WriteLine("Invalid choice. Please try again:");
     choice = int.Parse(Console.ReadLine() ?? "0");
@@ -76,6 +79,15 @@ switch (choice)
         break;
     case 16:
         RunLC350();
+        break;
+    case 17:
+        RunLC219();
+        break;
+    case 18:
+        RunLC449();
+        break;
+    case 19:
+        RunLC645();
         break;
     default:
         Console.WriteLine("Invalid option.");
@@ -222,4 +234,29 @@ static void RunLC350()
     Console.WriteLine("Input nums2: [" + string.Join(", ", nums2) + "]");
     int[] result = LC_350_IntersectionOfTwoArraysII.Intersect(nums1, nums2);
     Console.WriteLine("Intersection of Two Arrays II: [" + string.Join(", ", result) + "]");
+}
+
+static void RunLC219()
+{
+    int[] nums = [1, 2, 3, 1];
+    int k = 3;
+    Console.WriteLine("Input Array: [" + string.Join(", ", nums) + "], k: " + k);
+    bool result = LC_219_ContainsDuplicatesII.ContainsNearbyDuplicate(nums, k);
+    Console.WriteLine($"Contains Nearby Duplicate: {result}");
+}
+
+static void RunLC449()
+{
+    int[] nums = [4,3,2,7,8,2,3,1];
+    Console.WriteLine("Input Array: [" + string.Join(", ", nums) + "]");
+    List<int> result = LC_448_FindAllDIsappearedInAArray.FindDisappearedNumbers(nums);
+    Console.WriteLine("Disappeared Numbers: [" + string.Join(", ", result) + "]");
+}
+
+static void RunLC645()
+{
+    int[] nums = [1, 2, 2, 4];
+    Console.WriteLine("Input Array: [" + string.Join(", ", nums) + "]");
+    int[] result = LC_645_SetMismatch.FindErrorNums(nums);
+    Console.WriteLine($"Set Mismatch - Repeated Number: {result[0]}, Missing Number: {result[1]}");
 }

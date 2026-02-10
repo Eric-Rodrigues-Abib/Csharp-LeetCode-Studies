@@ -29,18 +29,27 @@ namespace Arrays.Exercises
             int j = n - 1; // Pointer for nums2
             int k = m + n - 1; // Pointer for merged array
 
+            // Merge in reverse order to avoid overwriting elements in nums1
             while (i >= 0 && j >= 0) {
+                // Compare elements from the end of nums1 and nums2 and place the larger one at the end of nums1
                 if (nums1[i] <= nums2[j]) {
+                    // If the current element in nums1 is less than or equal to the current element in nums2, place the element from nums2 at the end of nums1
                     nums1[k] = nums2[j];
+                    // Move the pointer for nums2 to the left
                     j--;
                 } else{
+                    // If the current element in nums1 is greater than the current element in nums2, place the element from nums1 at the end of nums1
                     nums1[k] = nums1[i];
+                    // Move the pointer for nums1 to the left
                     i--;
                 }
+                // Move the pointer for the merged array to the left
                 k--;
             }
 
+            // If there are remaining elements in nums2, copy them to nums1
             while (j >= 0) {
+                // Place the remaining elements from nums2 at the beginning of nums1
                 nums1[k] = nums2[j];
                 j--;
                 k--;

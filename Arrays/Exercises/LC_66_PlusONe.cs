@@ -32,19 +32,31 @@ namespace Arrays.Exercises
     {
         public static int[] PlusOne(int[] digits)
         {
+            // Initialize carry to 1 since we are adding one to the number
             int carry = 1;
+            // Traverse the digits array from the last digit to the first
             for (int i = digits.Length - 1; i >= 0; i--) {
+                // Calculate the sum of the current digit and the carry
                 int sum = digits[i] + carry;
+                // Update the current digit to be the last digit of the sum
+                // why? because if the sum is 10 or greater, we only want to keep the last digit in the current position and carry over the rest to the next iteration
                 digits[i] = sum % 10;
+                // Update the carry for the next iteration
                 carry = sum / 10;
             }
+
+            // If there is still a carry after processing all digits, we need to create a new array
             if (carry == 1) {
+                // Create a new array with an additional digit at the front
                 int[] result = new int[digits.Length + 1];
+                // Set the first digit to 1 (the carry)
                 result[0] = 1;
+                // Copy the original digits to the new array starting from index 1
                 for (int i = 0; i < digits.Length; i++)
                 {
                     result[i + 1] = digits[i];
                 }
+                // Return the new array with the carry included
                 return result;
             }
             return digits;
